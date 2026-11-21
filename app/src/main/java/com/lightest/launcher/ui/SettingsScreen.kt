@@ -80,20 +80,13 @@ fun SettingsScreen(
                     SettingsToggle("Date", "Show weekday and date.", hudSettings.showDate) { SettingsPrefs.updateHudSettings(hudSettings.copy(showDate = it)) }
 
                     Text("Battery", color = LauncherColors.Green, fontSize = 14.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 16.dp, bottom = 4.dp))
-                    SettingsToggle("Battery Bar", "Show graphical battery bar.", hudSettings.showBatteryBar) { SettingsPrefs.updateHudSettings(hudSettings.copy(showBatteryBar = it)) }
                     SettingsToggle("Battery Percent", "Show numeric battery percentage.", hudSettings.showBatteryPercent) { SettingsPrefs.updateHudSettings(hudSettings.copy(showBatteryPercent = it)) }
-                    SettingsToggle("Battery Health", "Show battery health label.", hudSettings.showHealth) { SettingsPrefs.updateHudSettings(hudSettings.copy(showHealth = it)) }
                     SettingsToggle("Charge Current", "Show live charge / drain in mA.", hudSettings.showCurrent) { SettingsPrefs.updateHudSettings(hudSettings.copy(showCurrent = it)) }
 
                     Text("System HUD", color = LauncherColors.Green, fontSize = 14.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 16.dp, bottom = 4.dp))
                     SettingsToggle("Voltage", "Show battery voltage.", hudSettings.showVoltage) { SettingsPrefs.updateHudSettings(hudSettings.copy(showVoltage = it)) }
                     SettingsToggle("Device Temp", "Show internal device temperature.", hudSettings.showDeviceTemp) { SettingsPrefs.updateHudSettings(hudSettings.copy(showDeviceTemp = it)) }
                     SettingsToggle("Battery Temp", "Show battery temperature.", hudSettings.showBatteryTemp) { SettingsPrefs.updateHudSettings(hudSettings.copy(showBatteryTemp = it)) }
-                    SettingsToggle("Thermal Status", "Show thermal throttling status.", hudSettings.showThermal) { SettingsPrefs.updateHudSettings(hudSettings.copy(showThermal = it)) }
-                    SettingsToggle("RAM (Memory)", "Show memory usage.", hudSettings.showMemory) { SettingsPrefs.updateHudSettings(hudSettings.copy(showMemory = it)) }
-                    SettingsToggle("Storage", "Show storage usage.", hudSettings.showStorage) { SettingsPrefs.updateHudSettings(hudSettings.copy(showStorage = it)) }
-                    SettingsToggle("Refresh Rate", "Show current display refresh rate.", hudSettings.showRefreshRate) { SettingsPrefs.updateHudSettings(hudSettings.copy(showRefreshRate = it)) }
-                    SettingsToggle("Uptime", "Show system uptime.", hudSettings.showUptime) { SettingsPrefs.updateHudSettings(hudSettings.copy(showUptime = it)) }
                     SettingsToggle("Media Volume", "Show media volume percentage.", hudSettings.showMediaVolume) { SettingsPrefs.updateHudSettings(hudSettings.copy(showMediaVolume = it)) }
                     SettingsToggle("Ring Volume", "Show ringer volume percentage.", hudSettings.showRingVolume) { SettingsPrefs.updateHudSettings(hudSettings.copy(showRingVolume = it)) }
 
@@ -206,8 +199,7 @@ fun CalendarMonthSelector(selected: Int, onSelect: (Int) -> Unit) {
     val options = listOf(
         0 to "Off",
         1 to "1 Month",
-        2 to "2 Months",
-        3 to "3 Months"
+        2 to "2 Months"
     )
     Row(
         modifier = Modifier.fillMaxWidth(),

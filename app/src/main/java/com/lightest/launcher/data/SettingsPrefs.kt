@@ -28,8 +28,8 @@ object SettingsPrefs {
     private val _whiteThemeFlow = MutableStateFlow(false)
     val whiteThemeFlow: StateFlow<Boolean> = _whiteThemeFlow.asStateFlow()
 
-    // 0 = off, 1 = current month, 2 = current+next, 3 = current+next+next-next
-    private val _calendarMonthsFlow = MutableStateFlow(0)
+    // 0 = off, 1 = current month, 2 = current+next
+    private val _calendarMonthsFlow = MutableStateFlow(1)
     val calendarMonthsFlow: StateFlow<Int> = _calendarMonthsFlow.asStateFlow()
 
     private val _hiddenAppsFlow = MutableStateFlow<Set<String>>(emptySet())
@@ -40,33 +40,22 @@ object SettingsPrefs {
         _showWorkAppsFlow.value = prefs.getBoolean(KEY_SHOW_WORK_APPS, true)
         _sharpEdgesFlow.value = prefs.getBoolean(KEY_SHARP_EDGES, false)
         _whiteThemeFlow.value = prefs.getBoolean(KEY_WHITE_THEME, false)
-        _calendarMonthsFlow.value = prefs.getInt(KEY_CALENDAR_MONTHS, 0)
+        _calendarMonthsFlow.value = prefs.getInt(KEY_CALENDAR_MONTHS, 1)
         _hiddenAppsFlow.value = prefs.getStringSet(KEY_HIDDEN_APPS, emptySet()) ?: emptySet()
 
         _hudSettingsFlow.value = HudSettings(
             showTime = prefs.getBoolean("show_time", true),
             showDate = prefs.getBoolean("show_date", true),
-            showBatteryBar = prefs.getBoolean("show_battery_bar", true),
-            showBatteryPercent = prefs.getBoolean("show_battery_percent", true),
-            showVoltage = prefs.getBoolean("show_voltage", true),
-            showDeviceTemp = prefs.getBoolean("show_device_temp", true),
-            showBatteryTemp = prefs.getBoolean("show_battery_temp", true),
-            showThermal = prefs.getBoolean("show_thermal", true),
-            showMemory = prefs.getBoolean("show_memory", true),
-            showStorage = prefs.getBoolean("show_storage", true),
-            showRefreshRate = prefs.getBoolean("show_refresh", true),
-            showUptime = prefs.getBoolean("show_uptime", true),
+            showBatteryPercent = prefs.getBoolean("show_battery_percent", false),
+            showVoltage = prefs.getBoolean("show_voltage", false),
+            showDeviceTemp = prefs.getBoolean("show_device_temp", false),
+            showBatteryTemp = prefs.getBoolean("show_battery_temp", false),
+            showMemory = prefs.getBoolean("show_memory", false),
+            showStorage = prefs.getBoolean("show_storage", false),
+            showRefreshRate = prefs.getBoolean("show_refresh", false),
             showMediaVolume = prefs.getBoolean("show_media_volume", true),
             showRingVolume = prefs.getBoolean("show_ring_volume", true),
-            // Existing installs inherit Battery % so the HUD does not suddenly change.
-            showHealth = prefs.getBoolean(
-                "show_health",
-                prefs.getBoolean("show_battery_percent", true)
-            ),
-            showCurrent = prefs.getBoolean(
-                "show_current",
-                prefs.getBoolean("show_battery_percent", true)
-            )
+            showCurrent = prefs.getBoolean("show_current", false)
         )
     }
 
@@ -74,19 +63,15 @@ object SettingsPrefs {
         prefs.edit().apply {
             putBoolean("show_time", settings.showTime)
             putBoolean("show_date", settings.showDate)
-            putBoolean("show_battery_bar", settings.showBatteryBar)
             putBoolean("show_battery_percent", settings.showBatteryPercent)
             putBoolean("show_voltage", settings.showVoltage)
             putBoolean("show_device_temp", settings.showDeviceTemp)
             putBoolean("show_battery_temp", settings.showBatteryTemp)
-            putBoolean("show_thermal", settings.showThermal)
             putBoolean("show_memory", settings.showMemory)
             putBoolean("show_storage", settings.showStorage)
             putBoolean("show_refresh", settings.showRefreshRate)
-            putBoolean("show_uptime", settings.showUptime)
             putBoolean("show_media_volume", settings.showMediaVolume)
             putBoolean("show_ring_volume", settings.showRingVolume)
-            putBoolean("show_health", settings.showHealth)
             putBoolean("show_current", settings.showCurrent)
         }.apply()
         _hudSettingsFlow.value = settings
@@ -130,18 +115,18 @@ object SettingsPrefs {
 data class HudSettings(
     val showTime: Boolean = true,
     val showDate: Boolean = true,
-    val showBatteryBar: Boolean = true,
+    val showBatteryBar: Boolean = false,
     val showBatteryPercent: Boolean = true,
-    val showVoltage: Boolean = true,
-    val showDeviceTemp: Boolean = true,
-    val showBatteryTemp: Boolean = true,
-    val showThermal: Boolean = true,
-    val showMemory: Boolean = true,
-    val showStorage: Boolean = true,
-    val showRefreshRate: Boolean = true,
-    val showUptime: Boolean = true,
+    val showVoltage: Boolean = false,
+    val showDeviceTemp: Boolean = false,
+    val showBatteryTemp: Boolean = false,
+    val showThermal: Boolean = false,
+    val showMemory: Boolean = false,
+    val showStorage: Boolean = false,
+    val showRefreshRate: Boolean = false,
+    val showUptime: Boolean = false,
     val showMediaVolume: Boolean = true,
     val showRingVolume: Boolean = true,
-    val showHealth: Boolean = true,
-    val showCurrent: Boolean = true
+    val showHealth: Boolean = false,
+    val showCurrent: Boolean = false
 )

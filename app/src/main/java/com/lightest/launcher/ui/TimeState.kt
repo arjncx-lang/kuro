@@ -51,6 +51,7 @@ fun rememberTimeAndDate(
                 addAction(Intent.ACTION_TIME_TICK)
                 addAction(Intent.ACTION_TIME_CHANGED)
                 addAction(Intent.ACTION_TIMEZONE_CHANGED)
+                addAction(Intent.ACTION_DATE_CHANGED)
             }
             context.registerReceiver(receiver, filter)
         },
@@ -78,8 +79,8 @@ private fun getTimeData(): TimeData {
         cachedLocale = locale
         time12Format = SimpleDateFormat("hh:mm", locale)
         amPmFormat = SimpleDateFormat("a", locale)
-        dateTextFormat = SimpleDateFormat("MMM d, yyyy", locale)
-        weekdayFormat = SimpleDateFormat("EEE", locale)
+        dateTextFormat = SimpleDateFormat("MMM d", locale)
+        weekdayFormat = SimpleDateFormat("EEEE", locale)
     }
 
     val now = Calendar.getInstance().time

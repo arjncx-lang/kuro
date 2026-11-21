@@ -5,9 +5,8 @@
 <h1 align="center">Pitch Black Launcher</h1>
 
 <p align="center">
-  <img src="screenshot.png" width="30%" />
-  <img src="dialog_screenshot.png" width="30%" />
-  <img src="search_screenshot.png" width="30%" />
+  <img src="screenshot.png" width="45%" />
+  <img src="work_screenshot.png" width="45%" />
 </p>
 
 Fair warning: you probably won't like this. To most people it looks dumb, brutally empty, and basically allergic to fun. But for me, it is dumb and useful as fuck.

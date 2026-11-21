@@ -11,8 +11,8 @@ android {
         applicationId = "com.lightest.launcher"
         minSdk = 24
         targetSdk = 37          // Upgraded: unlocks latest ART optimizations
-        versionCode = 15
-        versionName = "1.9.1"
+        versionCode = 16
+        versionName = "1.9.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
