@@ -9,76 +9,65 @@
   <img src="work_screenshot.png" width="45%" />
 </p>
 
-Fair warning: you probably won't like this. To most people it looks dumb, brutally empty, and basically allergic to fun. But for me, it is dumb and useful as fuck.
+A single-screen, zero-scroll, pitch-black Android launcher engineered for pure speed, zero background battery waste, and distraction-free daily use.
+
+---
+
+## Compatibility
+
+- **Minimum Android version:** Android 7.0 (Nougat, API 24)
+- **Target Android version:** Android 15 / 16 (API 37)
+- Works on any Android phone, tablet, or foldable running Android 7.0 through Android 15+.
 
 ---
 
 ## Where this came from
 
-I didn't plan this out. It literally came to me in a sudden thought while standing at a bus stop early in the morning waiting for my ride.
+The idea hit me while waiting at a bus stop early in the morning for my ride. 
 
-I was exhausted from constantly hopping between LineageOS Launcher, Microsoft Launcher, and others just trying to squeeze decent battery life out of my phone. On top of the battery drain, I kept thinking about what sickening amount of background data and telemetry these modern launchers crawl through on your device. 
-
-I'm not a paranoid privacy freak, but having that unneeded bloat running in the background constantly feels like having a tiny food particle permanently stuck in your teeth, you just can't ignore how annoying it is.
-
-So standing at that bus stop, I decided to build what I actually wanted: pitch black, battery-dead, completely transparent, and brutally simple.
+I was tired of hopping between LineageOS Launcher, Microsoft Launcher, and other home screens just trying to get decent battery life out of my phone. On top of the battery drain, I kept thinking about the background telemetry and data collection crawling through typical launchers. I built Kuro in my free time to solve this exact problem: an honest, pitch-black, zero-bloat home screen that does not get in your way.
 
 ---
 
-## Why put this on GitHub?
+## Key Features
 
-Two main reasons:
+### 1. Single-Screen Zero-Scroll Grid
+Every app you have fits on a single screen. Kuro calculates your display dimensions and proportions icons, font sizes, and row spacing so you never have to scroll down an app drawer again. Everything is one tap away.
 
-1. Free code storage for me so I don't lose it when my laptop does something stupid.
-2. If you like the idea, steal it. Fork the repo, copy whatever you want, strip out what you hate, and make something neat for yourself. You don't have to ask, just take the code and build something cool.
+### 2. Built-in Work Profile Support
+Work apps stay completely isolated on their own dedicated page. Swipe right to access work apps with custom green badges positioned on the icon corner, keeping work tools organized without cluttering your personal home screen.
 
----
+### 3. Compact Multi-Month Calendar
+Glance at a 1- or 2-month calendar right next to the clock. Weekends are highlighted in red, the current day is marked in green, and dates update automatically at midnight.
 
-## Why the features look and work like this
+### 4. Real-Time Hardware HUD
+Optional live diagnostics at the top of your screen:
+- Live charging/drain current (+mA / -mA)
+- Battery pack voltage (V)
+- Ring and Media volume percentages
+- Device and battery temperatures
 
-Every weird little thing here exists because I got annoyed by the alternative:
+### 5. True AMOLED Black (#000000)
+Pure black pixels are powered off on OLED displays, using 0% backlight power.
 
-### 1. Pitch black background. No wallpapers.
-Wallpapers look cool for two days, then they just become visual noise that hides your app icons. Plus on OLED screens, pure black pixels are literally turned off. No backlight, no battery drain, no distractions.
-
-### 2. The nerd HUD at the top
-Up top there is a small diagnostic line that shows your live charging or drain current (in mA), battery percent, voltage, device temperature, RAM, and volume.
-- Why? If a cheap charging cable is giving me 200 mA instead of fast charging, or if my phone is overheating in my pocket, I want to know right away without opening some ad-riddled cleaner app.
-- How it runs without eating battery: It doesn't poll in an infinite loop. It just sits there asleep and only updates when Android itself fires a system broadcast.
-
-### 3. The mini calendar
-Right above the apps, you can show 1, 2, or 3 months.
-- Why? Because opening a full calendar app just to check what day of the week the 18th lands on is annoying. It is right there.
-- Today is just highlighted in bright green text. No weird bloated pills, no oval blocks, no clipping. Just clean text.
-
-### 4. Lock button and refresh right in the toolbar
-- The lock icon: Reaching up to press the physical power button wears it out over time, and honestly I'm lazy. One tap locks the phone.
-- The refresh button: If you sideload or install an app, tap it once and your app list refreshes immediately.
-
-### 5. Sharp edges toggle
-If you hate rounded circle icons and want everything to look like sharp little squares, there is a toggle in settings for that.
-
-### 6. App search and work profile
-Swipe up to search your apps with instant filtering. If you have work apps on your phone, swipe sideways to a separate work page so work stuff doesn't clutter your home screen.
+### 6. Zero Background Battery Drain
+Kuro unregisters all listeners when you are inside an app or when your screen is locked. It runs zero polling loops and wakes up only when Android fires a system broadcast.
 
 ---
 
-## What is actually going on under the hood
+## Technical Highlights
 
-To keep it simple:
-
-- Built with modern Jetpack Compose.
-- Zero background polling loops. It sleeps 59 out of 60 seconds.
-- Fully minified with R8 optimization so the whole APK is around 1.7 MB.
-- When you are inside an app or your phone is in your pocket, this launcher does literally nothing.
+- Built 100% with native Jetpack Compose.
+- Single APK footprint of ~1.5 MB with R8 full-mode optimization.
+- Zero external ad SDKs, trackers, or network calls.
 
 ---
 
-## How to install it
+## Installation
 
-1. Grab `app-release.apk` from the Releases section (or build it yourself with Gradle).
-2. Install it with adb:
+1. Download `Kuro-v1.9.2.apk` from the [Releases](https://github.com/arjncx-lang/kuro/releases) tab.
+2. Install with adb or your device file manager:
    ```bash
-   adb install -r app-release.apk
+   adb install -r Kuro-v1.9.2.apk
    ```
-3. Set it as default, and you are good to go.
+3. Set Kuro as your default home app.
