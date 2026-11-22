@@ -19,7 +19,7 @@ I didn't plan this out. It literally came to me in a sudden thought while standi
 
 I was exhausted from constantly hopping between LineageOS Launcher, Microsoft Launcher, and others just trying to squeeze decent battery life out of my phone. On top of the battery drain, I kept thinking about what sickening amount of background data and telemetry these modern launchers crawl through on your device. 
 
-I'm not a paranoid privacy freak, but having that unneeded bloat running in the background constantly feels like having a tiny food particle permanently stuck in your teeth—you just can't ignore how annoying it is.
+I'm not a paranoid privacy freak, but having that unneeded bloat running in the background constantly feels like having a tiny food particle permanently stuck in your teeth, you just can't ignore how annoying it is.
 
 So standing at that bus stop, I decided to build what I actually wanted: pitch black, battery-dead, completely transparent, and brutally simple.
 
