@@ -15,11 +15,13 @@ Fair warning: you probably won't like this. To most people it looks dumb, brutal
 
 ## Where this came from
 
-I didn't plan this out. It literally came to me in a dream while I was standing at a bus stop waiting for my ride.
+I didn't plan this out. It literally came to me in a sudden thought while standing at a bus stop early in the morning waiting for my ride.
 
-I was just standing there thinking about how much modern Android launchers annoy me. Microsoft Launcher feels like it wants to manage my 401k. Nova Launcher has about six hundred nested menus just to change an icon shape. And stock phone launchers are crammed with news cards, weather animations, and random garbage running in the background while chewing through battery.
+I was exhausted from constantly hopping between LineageOS Launcher, Microsoft Launcher, and others just trying to squeeze decent battery life out of my phone. On top of the battery drain, I kept thinking about what sickening amount of background data and telemetry these modern launchers crawl through on your device. 
 
-So standing at that bus stop, I decided to just build what I actually wanted: pitch black, instant, and dead simple.
+I'm not a paranoid privacy freak, but having that unneeded bloat running in the background constantly feels like having a tiny food particle permanently stuck in your teeth—you just can't ignore how annoying it is.
+
+So standing at that bus stop, I decided to build what I actually wanted: pitch black, battery-dead, completely transparent, and brutally simple.
 
 ---
 
