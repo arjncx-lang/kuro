@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="logo.jpg" width="100" height="100" style="border-radius: 22px;" alt="Pitch Black Launcher Logo" />
+  <img src="logo.jpg" width="100" height="100" style="border-radius: 22px;" alt="Kuro Logo" />
 </p>
 
-<h1 align="center">Pitch Black Launcher</h1>
+<h1 align="center">Kuro (黒)</h1>
 
 <p align="center">
   <img src="screenshot.png" width="45%" />
